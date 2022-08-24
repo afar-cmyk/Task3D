@@ -32,6 +32,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/dosis/-/dosis-4.5.9.tgz#149a5c48ee67a20301f79afd0430e7a87d2d6bbd"
   integrity sha512-QU99CCETnBXwV/MDSQwwUbH15LtogYefsiZVIOGRNPGalqM+kjlvSxkA0A6vQZ3Pvkn0FylmaQw5IsD8so2PsQ==
 
+"@fontsource/inter@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.12.tgz#a6236379bf710658db048d7087ec588754962cb6"
+  integrity sha512-bGKk4/8tube/nCk8hav0ZDBVbzJzc7m0Vt4xF5p15IN4YImwGdtKG38Oq5bU8xHNS+VfvbFFCepgQNj7Pr/Lvg==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"

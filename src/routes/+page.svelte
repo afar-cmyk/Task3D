@@ -1,10 +1,12 @@
 <script>
 	import Logo from '../lib/logo.svelte';
+	import Footer from '../lib/footer.svelte';
 </script>
 
 <body>
 	<div class="contenedor-logo">
 		<Logo />
+		<Footer />
 	</div>
 </body>
 
@@ -15,6 +17,7 @@
 		min-height: 100vh;
 		margin: 0;
 		padding: 0;
+		box-sizing: border-box;
 	}
 	.contenedor-logo {
 		display: flex;

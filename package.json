@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/dosis": "^4.5.9"
+		"@fontsource/dosis": "^4.5.9",
+		"@fontsource/inter": "^4.5.12"
 	}
 }
