@@ -1,5 +1,5 @@
 <script>
-	import '@fontsource/inter';
+	import '@fontsource/inter/200.css';
 </script>
 
 <footer>
@@ -11,6 +11,8 @@
 		position: absolute;
 		bottom: 0px;
 		height: 56px;
+	}
+	span {
 		font-family: 'Inter', sans-serif;
 		font-weight: 200;
 		font-size: 11px;

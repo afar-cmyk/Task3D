@@ -1,5 +1,6 @@
 <script>
-	import '@fontsource/dosis';
+	import '@fontsource/dosis/400.css';
+	import '@fontsource/dosis/600.css';
 </script>
 
 <h1 class="tituloPrueba">
