@@ -1,13 +1,9 @@
 <script>
-	import Logo from '../lib/logo.svelte';
-	import Footer from '../lib/footer.svelte';
+	import Bienvenida from '../lib/bienvenida/bienvenida.svelte';
 </script>
 
 <body>
-	<div class="contenedor-logo">
-		<Logo />
-		<Footer />
-	</div>
+	<Bienvenida />
 </body>
 
 <style>
@@ -18,12 +14,5 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-	}
-	.contenedor-logo {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		height: 100vh;
 	}
 </style>
