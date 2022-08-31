@@ -1,10 +1,19 @@
 <script>
 	import '@fontsource/dosis/400.css';
 	import '@fontsource/dosis/600.css';
+	import { fade } from 'svelte/transition';
+	let primeraVez = false;
+	setTimeout(() => (primeraVez = !primeraVez), 1000);
 </script>
 
 <h1 class="tituloPrueba">
-	<span class="tituloPrimero">TASK</span><span class="tituloSegundo">3D</span>
+	{#if primeraVez}
+		<div transition:fade={{ duration: 2500 }}>
+			<span class="tituloPrimero">TASK</span><span class="tituloSegundo">3D</span>
+		</div>
+	{:else}
+		<div />
+	{/if}
 </h1>
 
 <style>

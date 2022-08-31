@@ -5,8 +5,8 @@
 
 <div class="contenedor-logo">
 	<Logo />
-	<Footer />
 </div>
+<Footer />
 
 <style>
 	.contenedor-logo {

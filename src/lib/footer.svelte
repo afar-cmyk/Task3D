@@ -11,6 +11,10 @@
 		position: absolute;
 		bottom: 0px;
 		height: 56px;
+		min-width: 100vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	span {
 		font-family: 'Inter', sans-serif;
