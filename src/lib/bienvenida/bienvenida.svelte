@@ -1,11 +1,12 @@
 <script>
 	import Logo from '../logo.svelte';
 	import Footer from '../footer.svelte';
+	import { leerDatos } from '../../stores/store';
 	import { onMount } from 'svelte';
 
 	// Funcion que devuelve True o False si es la primera vez en el sitio
 	const comprobarPrimeraVez = () => {
-		return !localStorage.getItem('primeraVez');
+		return !leerDatos('primeraVez');
 	};
 
 	// Comprueba al entrar al sitio si es la primera vez en este
