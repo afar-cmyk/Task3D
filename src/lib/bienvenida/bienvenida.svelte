@@ -20,7 +20,7 @@
 		<Logo />
 	</div>
 {:else}
-	<p>Pagina inicio descripcion y boton</p>
+	<p>Pagina inicio descripcion y boton si</p>
 {/if}
 
 <Footer />
