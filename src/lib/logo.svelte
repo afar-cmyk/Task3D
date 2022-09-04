@@ -2,17 +2,25 @@
 	import '@fontsource/dosis/400.css';
 	import '@fontsource/dosis/600.css';
 	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import { guardarDatos } from '../stores/store';
+
+	export let desmontarLogo;
+
 	let primeraVez = false;
-	setTimeout(() => (primeraVez = !primeraVez), 1000);
+
+	onMount(() => {
+		setTimeout(() => (primeraVez = !primeraVez), 1000);
+		setTimeout(() => guardarDatos('primeraVez', 1), 4000);
+		setTimeout(desmontarLogo, 5500);
+	});
 </script>
 
 <h1 class="tituloPrueba">
 	{#if primeraVez}
-		<div transition:fade={{ duration: 2500 }}>
+		<div in:fade={{ duration: 2500 }} out:fade={{ duration: 1000 }}>
 			<span class="tituloPrimero">TASK</span><span class="tituloSegundo">3D</span>
 		</div>
-	{:else}
-		<div />
 	{/if}
 </h1>
 

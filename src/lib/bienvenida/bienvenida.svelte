@@ -1,28 +1,40 @@
 <script>
 	import Logo from '../logo.svelte';
 	import Footer from '../footer.svelte';
-	import { leerDatos } from '../../stores/store';
-	import { onMount } from 'svelte';
+	import PaginaInicial from './paginaInicial.svelte';
+	import { leerDatos, guardarDatos } from '../../stores/store';
+	import { getContext, setContext, onMount } from 'svelte';
 
-	// Funcion que devuelve True o False si es la primera vez en el sitio
-	const comprobarPrimeraVez = () => {
-		return !leerDatos('primeraVez');
-	};
+	// Comprueba si es la primera vez en el sitio
+	let primeraVez = leerDatos('primeraVez') === 0 || leerDatos('primeraVez') === null;
 
-	// Comprueba al entrar al sitio si es la primera vez en este
-	onMount(() => {
-		comprobarPrimeraVez();
-	});
+	let EstadpLogoPrimeraVez = true;
+
+	function desmontarLogo() {
+		EstadpLogoPrimeraVez = false;
+	}
 </script>
 
-{#if comprobarPrimeraVez()}
-	<div class="contenedor-logo">
-		<Logo />
-	</div>
+{#if primeraVez}
+	{#if EstadpLogoPrimeraVez}
+		<div class="contenedor-logo">
+			<Logo {desmontarLogo} />
+		</div>
+	{:else}
+		<PaginaInicial />
+	{/if}
 {:else}
-	<p>Pagina inicio descripcion y boton si</p>
+	<PaginaInicial />
 {/if}
 
+<div class="debug">
+	<button
+		on:click={() => {
+			guardarDatos('primeraVez', 0), console.log(leerDatos('primeraVez'));
+		}}>primera vez</button
+	>
+	{primeraVez}
+</div>
 <Footer />
 
 <style>
@@ -32,5 +44,13 @@
 		align-items: center;
 		justify-content: center;
 		height: 100vh;
+	}
+	.debug {
+		position: absolute;
+		display: flex;
+		bottom: 45px;
+		width: 100vw;
+		align-items: center;
+		justify-content: center;
 	}
 </style>
