@@ -14,6 +14,8 @@
 		setTimeout(() => guardarDatos('primeraVez', 1), 4000);
 		setTimeout(desmontarLogo, 5500);
 	});
+
+	// hacer un prop para logo primera vez y logo normal
 </script>
 
 <h1 class="tituloPrueba">
@@ -30,7 +32,7 @@
 	}
 	.tituloPrueba {
 		font-family: 'Dosis', sans-serif;
-		font-size: 64px;
+		font-size: var(--tamaño-texto, var(--tamaño-texto, 64px));
 		margin: 0;
 	}
 	.tituloPrimero {
