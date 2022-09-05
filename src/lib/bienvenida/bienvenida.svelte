@@ -8,17 +8,17 @@
 	// Comprueba si es la primera vez en el sitio
 	let primeraVez = leerDatos('primeraVez') === 0 || leerDatos('primeraVez') === null;
 
-	let EstadpLogoPrimeraVez = true;
+	let EstadoLogoPrimeraVez = true;
 
 	function desmontarLogo() {
-		EstadpLogoPrimeraVez = false;
+		EstadoLogoPrimeraVez = false;
 	}
 </script>
 
 {#if primeraVez}
-	{#if EstadpLogoPrimeraVez}
+	{#if EstadoLogoPrimeraVez}
 		<div class="contenedor-logo">
-			<Logo {desmontarLogo} />
+			<Logo logoPrimeraVez="true" {desmontarLogo} />
 		</div>
 	{:else}
 		<PaginaInicial />

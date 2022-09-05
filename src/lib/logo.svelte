@@ -6,6 +6,8 @@
 	import { guardarDatos } from '../stores/store';
 
 	export let desmontarLogo;
+	export let logoNormal;
+	export let logoPrimeraVez;
 
 	let primeraVez = false;
 
@@ -18,13 +20,21 @@
 	// hacer un prop para logo primera vez y logo normal
 </script>
 
-<h1 class="tituloPrueba">
-	{#if primeraVez}
-		<div in:fade={{ duration: 2500 }} out:fade={{ duration: 1000 }}>
-			<span class="tituloPrimero">TASK</span><span class="tituloSegundo">3D</span>
-		</div>
-	{/if}
-</h1>
+{#if logoPrimeraVez}
+	<h1 class="tituloPrueba">
+		{#if primeraVez}
+			<div in:fade={{ duration: 2500 }} out:fade={{ duration: 1000 }}>
+				<span class="tituloPrimero">TASK</span><span class="tituloSegundo">3D</span>
+			</div>
+		{/if}
+	</h1>
+{/if}
+
+{#if logoNormal}
+	<h1 class="tituloPrueba">
+		<span class="tituloPrimero">TASK</span><span class="tituloSegundo">3D</span>
+	</h1>
+{/if}
 
 <style>
 	h1 {
