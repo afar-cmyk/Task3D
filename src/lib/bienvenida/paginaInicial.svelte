@@ -1,5 +1,6 @@
 <script>
 	import Logo from '../logo.svelte';
+	import BotonPrincipal from '../botonPrincipal.svelte';
 </script>
 
 <main>
@@ -9,7 +10,7 @@
 		<p>¡Los estudios revelan que solo necesitas 30 dias para comenzar una rutina!</p>
 	</span>
 
-	<button>Nueva rutina</button>
+	<BotonPrincipal textoBoton="Nueva rutina" />
 </main>
 
 <style>
