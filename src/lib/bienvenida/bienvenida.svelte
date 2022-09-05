@@ -3,7 +3,6 @@
 	import Footer from '../footer.svelte';
 	import PaginaInicial from './paginaInicial.svelte';
 	import { leerDatos, guardarDatos } from '../../stores/store';
-	import { getContext, setContext, onMount } from 'svelte';
 
 	// Comprueba si es la primera vez en el sitio
 	let primeraVez = leerDatos('primeraVez') === 0 || leerDatos('primeraVez') === null;
