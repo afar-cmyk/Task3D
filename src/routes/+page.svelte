@@ -1,10 +1,39 @@
 <script>
+	import { setContext } from 'svelte';
 	import Bienvenida from '../lib/bienvenida/bienvenida.svelte';
+	import NuevaRutina from '../lib/crearRutina/nuevaRutina.svelte';
+	import { guardarDatos, leerDatos } from '../stores/store';
+
+	let bienvenida = true;
+	let crearRutina = false;
+
+	function desmontarBienvenida() {
+		bienvenida = !bienvenida;
+		crearRutina = !crearRutina;
+	}
+
+	setContext('desmontarBienvenida', desmontarBienvenida);
 </script>
 
 <body>
-	<Bienvenida />
+	{#if bienvenida}
+		<Bienvenida />
+	{/if}
+
+	{#if crearRutina}
+		<NuevaRutina />
+	{/if}
 </body>
+
+<!-- debug! -->
+<div class="debug">
+	<button
+		on:click={() => {
+			guardarDatos('primeraVez', 0), console.log(leerDatos('primeraVez'));
+		}}>primera vez</button
+	>
+	<button on:click={desmontarBienvenida}>bienvenida</button>
+</div>
 
 <style>
 	body {
@@ -14,5 +43,13 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+	}
+	.debug {
+		position: absolute;
+		display: flex;
+		bottom: 45px;
+		width: 100vw;
+		align-items: center;
+		justify-content: center;
 	}
 </style>

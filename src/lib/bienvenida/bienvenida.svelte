@@ -2,11 +2,10 @@
 	import Logo from '../logo.svelte';
 	import Footer from '../footer.svelte';
 	import PaginaInicial from './paginaInicial.svelte';
-	import { leerDatos, guardarDatos } from '../../stores/store';
+	import { leerDatos } from '../../stores/store';
 
 	// Comprueba si es la primera vez en el sitio
 	let primeraVez = leerDatos('primeraVez') === 0 || leerDatos('primeraVez') === null;
-
 	let EstadoLogoPrimeraVez = true;
 
 	function desmontarLogo() {
@@ -20,20 +19,12 @@
 			<Logo logoPrimeraVez="true" {desmontarLogo} />
 		</div>
 	{:else}
-		<PaginaInicial />
+		<PaginaInicial normal={false} primeraVez={true} />
 	{/if}
 {:else}
-	<PaginaInicial />
+	<PaginaInicial normal={true} primeraVez={false} />
 {/if}
 
-<div class="debug">
-	<button
-		on:click={() => {
-			guardarDatos('primeraVez', 0), console.log(leerDatos('primeraVez'));
-		}}>primera vez</button
-	>
-	{primeraVez}
-</div>
 <Footer />
 
 <style>
@@ -43,13 +34,5 @@
 		align-items: center;
 		justify-content: center;
 		height: 100vh;
-	}
-	.debug {
-		position: absolute;
-		display: flex;
-		bottom: 45px;
-		width: 100vw;
-		align-items: center;
-		justify-content: center;
 	}
 </style>

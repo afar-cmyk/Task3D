@@ -1,17 +1,20 @@
 <script>
+	import { getContext } from 'svelte';
 	import Logo from '../logo.svelte';
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import '@fontsource/inter';
+
+	let desmontarBienvenida = getContext('desmontarBienvenida');
 </script>
 
 <main>
-	<Logo --tamaño-texto="48px" logoNormal="true" />
+	<Logo logoPrimeraVez={false} desmontarLogo={null} --tamaño-texto="48px" logoNormal="true" />
 	<span class="texto-principal">
 		<p class="primer-texto">¿Quieres crear una nueva rutina y no sabes por donde comenzar?</p>
 		<p>¡Los estudios revelan que solo necesitas 30 dias para comenzar una rutina!</p>
 	</span>
 
-	<BotonPrincipal textoBoton="Nueva rutina" />
+	<BotonPrincipal on:click={desmontarBienvenida} textoBoton="Nueva rutina" />
 </main>
 
 <style>
