@@ -16,8 +16,6 @@
 		setTimeout(() => guardarDatos('primeraVez', 1), 4000);
 		setTimeout(desmontarLogo, 5500);
 	});
-
-	// hacer un prop para logo primera vez y logo normal
 </script>
 
 {#if logoPrimeraVez}

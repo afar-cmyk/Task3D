@@ -19,10 +19,10 @@
 			<Logo logoPrimeraVez="true" {desmontarLogo} />
 		</div>
 	{:else}
-		<PaginaInicial normal={false} primeraVez={true} />
+		<PaginaInicial />
 	{/if}
 {:else}
-	<PaginaInicial normal={true} primeraVez={false} />
+	<PaginaInicial />
 {/if}
 
 <Footer />
