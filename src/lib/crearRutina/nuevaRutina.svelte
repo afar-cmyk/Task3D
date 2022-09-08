@@ -23,7 +23,7 @@
 
 	<div>
 		<h3 class="titulo-secundario">Escribe cada frase seguida de una coma:</h3>
-		<input type="text" />
+		<textarea type="text" class="input-tags" />
 	</div>
 
 	<div class="acciones">
@@ -61,7 +61,8 @@
 		align-items: center;
 	}
 
-	input {
+	input,
+	textarea {
 		background: #475052;
 		border: 0;
 		border-radius: 8px;
@@ -75,6 +76,11 @@
 		padding-left: 8px;
 		box-sizing: border-box;
 		width: 100%;
+	}
+
+	.input-tags {
+		min-height: 112px;
+		resize: none;
 	}
 
 	.texto-principal {
