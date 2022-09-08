@@ -2,6 +2,9 @@
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import Footer from '../footer.svelte';
 	import Logo from '../logo.svelte';
+
+	let tituloRutina = '';
+	let fasesRutina = [];
 </script>
 
 <nav>
@@ -18,7 +21,7 @@
 
 	<div>
 		<h3 class="titulo-secundario">Ingresa el titulo de tu nueva rutina:</h3>
-		<input type="text" />
+		<input type="text" bind:value={tituloRutina} />
 	</div>
 
 	<div>
@@ -34,6 +37,7 @@
 	</div>
 </main>
 
+{tituloRutina}
 <Footer />
 
 <style>
