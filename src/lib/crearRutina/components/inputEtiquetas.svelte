@@ -7,7 +7,7 @@
 		if (e.key === 'Enter' || e.key === ',') {
 			arrayEtiquetas.push(textoEtiqueta.replace(',', ''));
 			arrayEtiquetas = arrayEtiquetas;
-			textoEtiqueta = null;
+			textoEtiqueta = '';
 		}
 	}
 </script>
