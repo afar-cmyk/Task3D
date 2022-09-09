@@ -36,8 +36,6 @@
 		</sub>
 	</div>
 </main>
-
-{tituloRutina}
 <Footer />
 
 <style>

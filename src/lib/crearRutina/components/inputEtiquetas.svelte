@@ -2,25 +2,27 @@
 	import Etiqueta from './etiqueta.svelte';
 	let textoEtiqueta = '';
 	let arrayEtiquetas = [];
-	// function onKeydown(e) {
-	// 	switch (e.keyCode) {
-	// 		case 38:
-	// 			arrayEtiquetas.push(textoEtiqueta);
-	// 	}
-	// }
+
+	function agregarFrases(e) {
+		if (e.key === 'Enter' || e.key === ',') {
+			arrayEtiquetas.push(textoEtiqueta.replace(',', ''));
+			arrayEtiquetas = arrayEtiquetas;
+			textoEtiqueta = null;
+		}
+	}
 </script>
 
 <div class="seccion-etiquetas">
 	{#each arrayEtiquetas as etiquetas}
 		<Etiqueta tituloEtiqueta={etiquetas} />
 	{/each}
-	<Etiqueta tituloEtiqueta={textoEtiqueta} />
 	<input
 		type="text"
 		name="introducir-etiquetas"
 		id="input-tags"
 		placeholder="Agrega una palabra o una frase"
 		bind:value={textoEtiqueta}
+		on:keyup|preventDefault={agregarFrases}
 	/>
 </div>
 
