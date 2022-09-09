@@ -1,8 +1,9 @@
 <script>
+	export let tituloEtiqueta;
 </script>
 
 <div class="contenedor-tag">
-	<div class="tag">Barrer la casa</div>
+	<div class="tag">{tituloEtiqueta}</div>
 	<div class="boton-x">X</div>
 </div>
 
@@ -22,7 +23,7 @@
 	.tag {
 		font-family: 'Inter';
 		font-weight: 200;
-		font-size: 16px;
+		font-size: 14px;
 		color: #ffffff;
 		padding-right: 8px;
 	}

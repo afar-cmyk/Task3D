@@ -1,26 +1,37 @@
 <script>
 	import Etiqueta from './etiqueta.svelte';
+	let textoEtiqueta = '';
 </script>
 
-<textarea type="text" class="input-tags" />
-<Etiqueta />
+<div class="seccion-etiquetas">
+	<Etiqueta tituloEtiqueta="Barrer la casa" />
+	<Etiqueta tituloEtiqueta="Trapear el piso" />
+	<Etiqueta tituloEtiqueta="Quitar el polvo" />
+	<Etiqueta tituloEtiqueta={textoEtiqueta} />
+	<input type="text" name="introducir-etiquetas" id="input-tags" bind:value={textoEtiqueta} />
+</div>
 
 <style>
-	textarea {
+	.seccion-etiquetas {
 		background: #475052;
-		border: 0;
 		border-radius: 8px;
+		padding: 8px;
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: 8px;
+		column-gap: 8px;
+	}
+
+	#input-tags {
+		flex: 1;
+		width: fit-content;
+		padding: 0;
+		border: none;
+		background: none;
+		outline: none;
 		font-family: 'Inter';
 		font-weight: 200;
 		font-size: 14px;
-		width: auto;
-		padding-top: 8px;
-		padding-bottom: 8px;
 		color: #ffffff;
-		padding-left: 8px;
-		box-sizing: border-box;
-		width: 100%;
-		min-height: 112px;
-		resize: none;
 	}
 </style>
