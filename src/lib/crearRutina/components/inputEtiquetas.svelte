@@ -1,14 +1,27 @@
 <script>
 	import Etiqueta from './etiqueta.svelte';
 	let textoEtiqueta = '';
+	let arrayEtiquetas = [];
+	// function onKeydown(e) {
+	// 	switch (e.keyCode) {
+	// 		case 38:
+	// 			arrayEtiquetas.push(textoEtiqueta);
+	// 	}
+	// }
 </script>
 
 <div class="seccion-etiquetas">
-	<Etiqueta tituloEtiqueta="Barrer la casa" />
-	<Etiqueta tituloEtiqueta="Trapear el piso" />
-	<Etiqueta tituloEtiqueta="Quitar el polvo" />
+	{#each arrayEtiquetas as etiquetas}
+		<Etiqueta tituloEtiqueta={etiquetas} />
+	{/each}
 	<Etiqueta tituloEtiqueta={textoEtiqueta} />
-	<input type="text" name="introducir-etiquetas" id="input-tags" bind:value={textoEtiqueta} />
+	<input
+		type="text"
+		name="introducir-etiquetas"
+		id="input-tags"
+		placeholder="Agrega una palabra o una frase"
+		bind:value={textoEtiqueta}
+	/>
 </div>
 
 <style>
@@ -33,5 +46,9 @@
 		font-weight: 200;
 		font-size: 14px;
 		color: #ffffff;
+	}
+
+	#input-tags::placeholder {
+		color: #ffffff50;
 	}
 </style>
