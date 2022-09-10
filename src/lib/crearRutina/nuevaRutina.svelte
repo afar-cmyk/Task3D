@@ -21,7 +21,12 @@
 
 	<div>
 		<h3 class="titulo-secundario">Ingresa el titulo de tu nueva rutina:</h3>
-		<input type="text" bind:value={tituloRutina} />
+		<input
+			id="input-title"
+			type="text"
+			bind:value={tituloRutina}
+			placeholder="Escribe el titulo de la rutina"
+		/>
 	</div>
 
 	<div>
@@ -129,5 +134,9 @@
 	.acciones strong {
 		font-family: 'Inter';
 		font-weight: 500;
+	}
+
+	#input-title::placeholder {
+		color: #ffffff50;
 	}
 </style>
