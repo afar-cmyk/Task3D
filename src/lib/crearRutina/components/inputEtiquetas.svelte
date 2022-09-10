@@ -1,4 +1,5 @@
 <script>
+	import { guardarDatos } from '../../../stores/store';
 	import Etiqueta from './etiqueta.svelte';
 	let textoEtiqueta = '';
 	let arrayEtiquetas = [];
@@ -6,6 +7,7 @@
 	function agregarFrases(e) {
 		if (e.key === 'Enter' || e.key === ',') {
 			arrayEtiquetas = [...arrayEtiquetas, textoEtiqueta.replace(',', '')];
+			guardarDatos('contenidoRutina', arrayEtiquetas);
 			textoEtiqueta = '';
 		}
 	}
@@ -13,6 +15,7 @@
 	function borrarFrase(i) {
 		arrayEtiquetas.splice(i, 1);
 		arrayEtiquetas = arrayEtiquetas;
+		guardarDatos('contenidoRutina', arrayEtiquetas);
 	}
 </script>
 
@@ -27,6 +30,7 @@
 		placeholder="Agrega una palabra o una frase"
 		bind:value={textoEtiqueta}
 		on:keyup|preventDefault={agregarFrases}
+		on:blur={guardarDatos('contenidoRutina', arrayEtiquetas)}
 	/>
 </div>
 
