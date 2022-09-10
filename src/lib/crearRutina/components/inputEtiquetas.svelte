@@ -5,16 +5,20 @@
 
 	function agregarFrases(e) {
 		if (e.key === 'Enter' || e.key === ',') {
-			arrayEtiquetas.push(textoEtiqueta.replace(',', ''));
-			arrayEtiquetas = arrayEtiquetas;
+			arrayEtiquetas = [...arrayEtiquetas, textoEtiqueta.replace(',', '')];
 			textoEtiqueta = '';
 		}
+	}
+
+	function borrarFrase(i) {
+		arrayEtiquetas.splice(i, 1);
+		arrayEtiquetas = arrayEtiquetas;
 	}
 </script>
 
 <div class="seccion-etiquetas">
-	{#each arrayEtiquetas as etiquetas}
-		<Etiqueta tituloEtiqueta={etiquetas} />
+	{#each arrayEtiquetas as etiquetas, i}
+		<Etiqueta tituloEtiqueta={etiquetas} borrarFrases={() => borrarFrase(i)} />
 	{/each}
 	<input
 		type="text"

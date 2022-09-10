@@ -1,10 +1,11 @@
 <script>
 	export let tituloEtiqueta;
+	export let borrarFrases;
 </script>
 
 <div class="contenedor-tag">
 	<div class="tag">{tituloEtiqueta}</div>
-	<div class="boton-x">X</div>
+	<div class="boton-x" on:click={borrarFrases}>X</div>
 </div>
 
 <style>
