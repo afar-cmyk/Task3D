@@ -1,8 +1,9 @@
 <script>
 	export let textoBoton;
+	export let deshabilitado = false;
 </script>
 
-<button on:click class="boton">
+<button on:click class="boton" disabled={deshabilitado}>
 	{textoBoton}
 </button>
 
@@ -26,5 +27,9 @@
 	.boton:active {
 		background: #4dac8e;
 		color: #181b1b;
+	}
+	.boton:disabled {
+		background: #262b2c;
+		color: #343b3c;
 	}
 </style>

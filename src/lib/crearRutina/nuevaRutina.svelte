@@ -5,6 +5,9 @@
 	import Logo from '../logo.svelte';
 	import InputEtiquetas from './components/inputEtiquetas.svelte';
 	let tituloRutina = '';
+	const comprobarFormulario = (e) => {
+		return e === '';
+	};
 </script>
 
 <nav>
@@ -40,6 +43,7 @@
 		<BotonPrincipal
 			textoBoton="Crear rutina"
 			on:click={guardarDatos('tituloRutina', tituloRutina)}
+			deshabilitado={comprobarFormulario(tituloRutina)}
 		/>
 		<sub>
 			<strong>¡Atencion!</strong> al borrar el cache del explorador perderas todos tus datos!
