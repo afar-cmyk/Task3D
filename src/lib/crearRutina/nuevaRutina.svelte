@@ -87,13 +87,17 @@
 		font-family: 'Inter';
 		font-weight: 200;
 		font-size: 14px;
-		width: auto;
 		padding-top: 8px;
 		padding-bottom: 8px;
 		color: #ffffff;
 		padding-left: 8px;
 		box-sizing: border-box;
 		width: 100%;
+	}
+
+	input:focus-visible {
+		border: none;
+		outline: 1px solid #3e8971;
 	}
 
 	.texto-principal {

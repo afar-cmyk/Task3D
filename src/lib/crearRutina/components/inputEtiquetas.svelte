@@ -22,7 +22,7 @@
 	}
 </script>
 
-<div class="seccion-etiquetas">
+<div class="seccion-etiquetas" tabindex="0">
 	{#each arrayEtiquetas as etiquetas, i}
 		<Etiqueta tituloEtiqueta={etiquetas} borrarFrases={() => borrarFrase(i)} />
 	{/each}
@@ -46,6 +46,11 @@
 		flex-wrap: wrap;
 		row-gap: 8px;
 		column-gap: 8px;
+	}
+
+	.seccion-etiquetas:focus-within {
+		border: none;
+		outline: 1px solid #3e8971;
 	}
 
 	#input-tags {
