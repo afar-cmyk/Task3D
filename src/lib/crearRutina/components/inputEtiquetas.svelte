@@ -7,7 +7,8 @@
 
 	function agregarFrases(e) {
 		if (e.key === 'Enter' || e.key === ',') {
-			arrayEtiquetas = [...arrayEtiquetas, textoEtiqueta.replace(',', '')];
+			arrayEtiquetas = [...arrayEtiquetas, textoEtiqueta.replace(/\W/g, '')];
+			arrayEtiquetas = arrayEtiquetas.filter(Boolean);
 			guardarDatos('contenidoRutina', arrayEtiquetas);
 			etiquetasVacias = !arrayEtiquetas.length;
 			textoEtiqueta = '';
