@@ -3,11 +3,13 @@
 	import Etiqueta from './etiqueta.svelte';
 	let textoEtiqueta = '';
 	let arrayEtiquetas = [];
+	export let etiquetasVacias = true;
 
 	function agregarFrases(e) {
 		if (e.key === 'Enter' || e.key === ',') {
 			arrayEtiquetas = [...arrayEtiquetas, textoEtiqueta.replace(',', '')];
 			guardarDatos('contenidoRutina', arrayEtiquetas);
+			etiquetasVacias = !arrayEtiquetas.length;
 			textoEtiqueta = '';
 		}
 	}
@@ -16,6 +18,7 @@
 		arrayEtiquetas.splice(i, 1);
 		arrayEtiquetas = arrayEtiquetas;
 		guardarDatos('contenidoRutina', arrayEtiquetas);
+		etiquetasVacias = !arrayEtiquetas.length;
 	}
 </script>
 

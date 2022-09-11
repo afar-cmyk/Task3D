@@ -4,9 +4,12 @@
 	import Footer from '../footer.svelte';
 	import Logo from '../logo.svelte';
 	import InputEtiquetas from './components/inputEtiquetas.svelte';
+
 	let tituloRutina = '';
-	const comprobarFormulario = (e) => {
-		return e === '';
+	$: etiquetasVacias = true;
+
+	const comprobarTitulo = (titulo) => {
+		return titulo === '';
 	};
 </script>
 
@@ -36,14 +39,14 @@
 
 	<div>
 		<h3 class="titulo-secundario">Escribe cada frase seguida de una coma:</h3>
-		<InputEtiquetas />
+		<InputEtiquetas bind:etiquetasVacias />
 	</div>
 
 	<div class="acciones">
 		<BotonPrincipal
 			textoBoton="Crear rutina"
 			on:click={guardarDatos('tituloRutina', tituloRutina)}
-			deshabilitado={comprobarFormulario(tituloRutina)}
+			deshabilitado={etiquetasVacias || comprobarTitulo(tituloRutina)}
 		/>
 		<sub>
 			<strong>¡Atencion!</strong> al borrar el cache del explorador perderas todos tus datos!
