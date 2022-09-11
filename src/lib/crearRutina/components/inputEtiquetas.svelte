@@ -23,7 +23,7 @@
 	}
 </script>
 
-<div class="seccion-etiquetas" tabindex="0">
+<div class="seccion-etiquetas">
 	{#each arrayEtiquetas as etiquetas, i}
 		<Etiqueta tituloEtiqueta={etiquetas} borrarFrases={() => borrarFrase(i)} />
 	{/each}
