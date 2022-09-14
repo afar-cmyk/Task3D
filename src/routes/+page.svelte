@@ -2,14 +2,21 @@
 	import { setContext } from 'svelte';
 	import Bienvenida from '../lib/bienvenida/bienvenida.svelte';
 	import NuevaRutina from '../lib/crearRutina/nuevaRutina.svelte';
+	import PresentarRutina from '../lib/crearRutina/presentarRutina.svelte';
 	import { guardarDatos, leerDatos } from '../stores/store';
 
 	let bienvenida = true;
 	let crearRutina = false;
+	let mostrarRutina = false;
 
 	function desmontarBienvenida() {
 		bienvenida = !bienvenida;
 		crearRutina = !crearRutina;
+	}
+
+	function desmontarNuevaRutina() {
+		crearRutina = !crearRutina;
+		mostrarRutina = !mostrarRutina;
 	}
 
 	setContext('desmontarBienvenida', desmontarBienvenida);
@@ -23,6 +30,10 @@
 	{#if crearRutina}
 		<NuevaRutina />
 	{/if}
+
+	{#if mostrarRutina}
+		<PresentarRutina />
+	{/if}
 </body>
 
 <!-- debug! -->
@@ -33,6 +44,7 @@
 		}}>primera vez</button
 	>
 	<button on:click={desmontarBienvenida}>bienvenida</button>
+	<button on:click={desmontarNuevaRutina}>mostrar rutina</button>
 </div>
 
 <style>
