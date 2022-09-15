@@ -1,4 +1,6 @@
 <script>
+	import { getContext } from 'svelte';
+
 	import { guardarDatos } from '../../stores/store';
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import Footer from '../footer.svelte';
@@ -11,6 +13,8 @@
 	const comprobarTitulo = (titulo) => {
 		return titulo === '';
 	};
+
+	let desmontarNuevaRutina = getContext('desmontarNuevaRutina');
 </script>
 
 <nav>
@@ -45,7 +49,9 @@
 	<div class="acciones">
 		<BotonPrincipal
 			textoBoton="Crear rutina"
-			on:click={guardarDatos('tituloRutina', tituloRutina)}
+			on:click={() => {
+				guardarDatos('tituloRutina', tituloRutina), desmontarNuevaRutina();
+			}}
 			deshabilitado={etiquetasVacias || comprobarTitulo(tituloRutina)}
 		/>
 		<sub>

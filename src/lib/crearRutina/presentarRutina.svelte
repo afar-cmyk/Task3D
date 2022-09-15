@@ -1,10 +1,14 @@
 <script>
+	import { leerDatos } from '../../stores/store';
+
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import Footer from '../footer.svelte';
+
+	let nombreRutina = leerDatos('tituloRutina');
 </script>
 
 <main>
-	<h1>Titulo Rutina</h1>
+	<h1>{nombreRutina}</h1>
 	<BotonPrincipal textoBoton="Conocer tarea" />
 </main>
 <Footer />

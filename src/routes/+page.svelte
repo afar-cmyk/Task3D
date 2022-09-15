@@ -20,6 +20,7 @@
 	}
 
 	setContext('desmontarBienvenida', desmontarBienvenida);
+	setContext('desmontarNuevaRutina', desmontarNuevaRutina);
 </script>
 
 <body>
