@@ -5,7 +5,6 @@
 
 	$: nombreRutina = leerDatos('tituloRutina');
 
-	// Arreglar el input de etiquetas para permitir tildes y algunos signos
 	// Permitir al usuario volver a la pantalla de creacion de rutina
 	// Cargar los valores desde el localStorage en los input
 	// Documentar el codigo
