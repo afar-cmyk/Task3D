@@ -1,7 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-
-	import { guardarDatos } from '../../stores/store';
+	import { guardarDatos, leerDatos } from '../../stores/store';
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import Footer from '../footer.svelte';
 	import Logo from '../logo.svelte';
@@ -15,6 +14,10 @@
 	};
 
 	let desmontarNuevaRutina = getContext('desmontarNuevaRutina');
+
+	const accionBotonPrincipal = () => {
+		guardarDatos('tituloRutina', tituloRutina), desmontarNuevaRutina();
+	};
 </script>
 
 <nav>
@@ -35,7 +38,6 @@
 			id="input-title"
 			type="text"
 			bind:value={tituloRutina}
-			on:emptied={guardarDatos('tituloRutina', '')}
 			on:blur={guardarDatos('tituloRutina', tituloRutina)}
 			placeholder="Escribe el titulo de la rutina"
 		/>
@@ -49,9 +51,7 @@
 	<div class="acciones">
 		<BotonPrincipal
 			textoBoton="Crear rutina"
-			on:click={() => {
-				guardarDatos('tituloRutina', tituloRutina), desmontarNuevaRutina();
-			}}
+			on:click={accionBotonPrincipal}
 			deshabilitado={etiquetasVacias || comprobarTitulo(tituloRutina)}
 		/>
 		<sub>
