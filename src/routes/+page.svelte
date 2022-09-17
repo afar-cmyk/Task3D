@@ -5,32 +5,43 @@
 	import PresentarRutina from '../lib/crearRutina/presentarRutina.svelte';
 	import { guardarDatos, leerDatos } from '../stores/store';
 
-	let bienvenida = true;
-	let crearRutina = false;
-	let mostrarRutina = false;
-	let edicion = false;
+	/**
+	 *  En esta pagina se incia por defecto la pantalla de bienvenida
+	 *  y se ajusta dependiendo de la navegacion del usuario,
+	 * 	por medio de los estados de cada una de las pantallas del sitio.
+	 */
 
+	let bienvenida = true; // Estado que controla la visibilidad de la pantalla de bienvenida
+	let crearRutina = false; // Estado que controla la visibilidad de la pantalla de creación de rutinas
+	let mostrarRutina = false; // Estado que controla la visibilidad de la pantalla de confirmación de rutina
+	let edicion = false; // Estado que controla el comportamiento de edicion de la pantalla `crearRutina`
+
+	// Funcion switcher que alterna entre la pantalla de bienvenida y la pantalla de crear rutina.
 	function desmontarBienvenida() {
 		bienvenida = !bienvenida;
 		crearRutina = !crearRutina;
 	}
 
+	// Funcion switcher que alterna entre la pantalla de crear rutina y la pantalla de confirmación de rutina.
 	function desmontarNuevaRutina() {
 		crearRutina = !crearRutina;
 		mostrarRutina = !mostrarRutina;
 	}
 
+	// Funcion que activa el modo edición de la pantalla `crearRutina`.
 	function modoEdicion() {
 		mostrarRutina = false;
 		edicion = true;
 		crearRutina = true;
 	}
 
+	// Estas funciones se guardan en el store de Svelte y son disponibles para cualquier pantalla o componente.
 	setContext('desmontarBienvenida', desmontarBienvenida);
 	setContext('desmontarNuevaRutina', desmontarNuevaRutina);
 	setContext('modoEdicion', modoEdicion);
 </script>
 
+<!-- Se activa la visibilidad de las pantallas dependiendo del estado de las variables -->
 <body>
 	{#if bienvenida}
 		<Bienvenida />
