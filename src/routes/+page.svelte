@@ -8,6 +8,7 @@
 	let bienvenida = true;
 	let crearRutina = false;
 	let mostrarRutina = false;
+	let edicion = false;
 
 	function desmontarBienvenida() {
 		bienvenida = !bienvenida;
@@ -19,8 +20,15 @@
 		mostrarRutina = !mostrarRutina;
 	}
 
+	function modoEdicion() {
+		mostrarRutina = false;
+		edicion = true;
+		crearRutina = true;
+	}
+
 	setContext('desmontarBienvenida', desmontarBienvenida);
 	setContext('desmontarNuevaRutina', desmontarNuevaRutina);
+	setContext('modoEdicion', modoEdicion);
 </script>
 
 <body>
@@ -29,7 +37,7 @@
 	{/if}
 
 	{#if crearRutina}
-		<NuevaRutina />
+		<NuevaRutina {edicion} />
 	{/if}
 
 	{#if mostrarRutina}

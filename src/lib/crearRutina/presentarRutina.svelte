@@ -1,7 +1,10 @@
 <script>
+	import { getContext } from 'svelte';
 	import { leerDatos } from '../../stores/store';
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import Footer from '../footer.svelte';
+
+	let modoEdicion = getContext('modoEdicion');
 
 	$: nombreRutina = leerDatos('tituloRutina');
 
@@ -13,7 +16,7 @@
 <main>
 	<h1>{nombreRutina}</h1>
 	<div class="seccion-botones">
-		<BotonPrincipal variante="secundario" textoBoton="Editar" />
+		<BotonPrincipal variante="secundario" textoBoton="Editar" on:click={modoEdicion} />
 		<BotonPrincipal textoBoton="Comenzar" />
 	</div>
 </main>

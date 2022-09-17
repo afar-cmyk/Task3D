@@ -1,9 +1,12 @@
 <script>
-	import { guardarDatos } from '../../../stores/store';
+	import { guardarDatos, leerDatos } from '../../../stores/store';
+
 	import Etiqueta from './etiqueta.svelte';
-	let textoEtiqueta = '';
-	let arrayEtiquetas = [];
+	export let edicion;
 	export let etiquetasVacias = true;
+
+	let textoEtiqueta = '';
+	let arrayEtiquetas = edicion ? leerDatos('contenidoRutina') : [];
 
 	function agregarFrases(e) {
 		if (e.key === 'Enter' || e.key === ',') {

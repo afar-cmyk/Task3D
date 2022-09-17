@@ -6,8 +6,10 @@
 	import Logo from '../logo.svelte';
 	import InputEtiquetas from './components/inputEtiquetas.svelte';
 
-	let tituloRutina = '';
-	$: etiquetasVacias = true;
+	export let edicion;
+
+	let tituloRutina = edicion ? leerDatos('tituloRutina') : '';
+	$: etiquetasVacias = edicion ? false : true;
 
 	const comprobarTitulo = (titulo) => {
 		return titulo === '';
@@ -45,7 +47,7 @@
 
 	<div>
 		<h3 class="titulo-secundario">Escribe cada frase seguida de una coma:</h3>
-		<InputEtiquetas bind:etiquetasVacias />
+		<InputEtiquetas bind:etiquetasVacias {edicion} />
 	</div>
 
 	<div class="acciones">
