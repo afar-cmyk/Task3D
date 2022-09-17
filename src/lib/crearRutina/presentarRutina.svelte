@@ -12,7 +12,10 @@
 
 <main>
 	<h1>{nombreRutina}</h1>
-	<BotonPrincipal textoBoton="Conocer tarea" />
+	<div class="seccion-botones">
+		<BotonPrincipal variante="secundario" textoBoton="Editar" />
+		<BotonPrincipal textoBoton="Comenzar" />
+	</div>
 </main>
 <Footer />
 
@@ -37,5 +40,13 @@
 		font-size: 48px;
 		line-height: 61px;
 		color: #ffffff;
+	}
+
+	.seccion-botones {
+		display: flex;
+		gap: 16px;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		width: 100%;
 	}
 </style>

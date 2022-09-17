@@ -1,9 +1,10 @@
 <script>
 	export let textoBoton;
 	export let deshabilitado = false;
+	export let variante = '';
 </script>
 
-<button on:click class="boton" disabled={deshabilitado}>
+<button on:click class={`boton ${variante}`} disabled={deshabilitado}>
 	{textoBoton}
 </button>
 
@@ -31,5 +32,14 @@
 	.boton:disabled {
 		background: #262b2c;
 		color: #343b3c;
+	}
+	.secundario {
+		background: #6eb0bf;
+	}
+	.secundario:hover {
+		background: #80bac6;
+	}
+	.secundario:active {
+		background: #4d9bac;
 	}
 </style>
