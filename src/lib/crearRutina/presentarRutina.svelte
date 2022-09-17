@@ -8,8 +8,6 @@
 
 	$: nombreRutina = leerDatos('tituloRutina');
 
-	// Permitir al usuario volver a la pantalla de creacion de rutina
-	// Cargar los valores desde el localStorage en los input
 	// Documentar el codigo
 </script>
 
