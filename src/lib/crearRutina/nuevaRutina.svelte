@@ -15,10 +15,10 @@
 		return titulo === '';
 	};
 
-	let desmontarNuevaRutina = getContext('desmontarNuevaRutina');
+	let alternarNuevaRutina = getContext('alternarNuevaRutina');
 
 	const accionBotonPrincipal = () => {
-		guardarDatos('tituloRutina', tituloRutina), desmontarNuevaRutina();
+		guardarDatos('tituloRutina', tituloRutina), alternarNuevaRutina();
 	};
 </script>
 

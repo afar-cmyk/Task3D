@@ -4,7 +4,7 @@
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import '@fontsource/inter';
 
-	let desmontarBienvenida = getContext('desmontarBienvenida');
+	let alternarBienvenida = getContext('alternarBienvenida');
 </script>
 
 <main>
@@ -14,7 +14,7 @@
 		<p>¡Los estudios revelan que solo necesitas 30 dias para comenzar una rutina!</p>
 	</span>
 
-	<BotonPrincipal on:click={desmontarBienvenida} textoBoton="Nueva rutina" />
+	<BotonPrincipal on:click={alternarBienvenida} textoBoton="Nueva rutina" />
 </main>
 
 <style>
