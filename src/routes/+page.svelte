@@ -5,25 +5,19 @@
 	import PresentarRutina from '../lib/crearRutina/presentarRutina.svelte';
 	import { guardarDatos, leerDatos } from '../stores/store';
 
-	/**
-	 *  En esta pagina se incia por defecto la pantalla de bienvenida
-	 *  y se ajusta dependiendo de la navegacion del usuario,
-	 * 	por medio de los estados de cada una de las pantallas del sitio.
-	 */
-
-	let bienvenida = true; // Estado que controla la visibilidad de la pantalla de bienvenida
-	let crearRutina = false; // Estado que controla la visibilidad de la pantalla de creación de rutinas
-	let mostrarRutina = false; // Estado que controla la visibilidad de la pantalla de confirmación de rutina
-	let edicion = false; // Estado que controla el comportamiento de edicion de la pantalla `crearRutina`
+	let mostrarBienvenida = true;
+	let crearRutina = false;
+	let mostrarRutina = false;
+	let edicion = false;
 
 	// Funcion switcher que alterna entre la pantalla de bienvenida y la pantalla de crear rutina.
-	function desmontarBienvenida() {
-		bienvenida = !bienvenida;
+	function alternarBienvenida() {
+		mostrarBienvenida = !mostrarBienvenida;
 		crearRutina = !crearRutina;
 	}
 
 	// Funcion switcher que alterna entre la pantalla de crear rutina y la pantalla de confirmación de rutina.
-	function desmontarNuevaRutina() {
+	function alternarNuevaRutina() {
 		crearRutina = !crearRutina;
 		mostrarRutina = !mostrarRutina;
 	}
@@ -36,14 +30,13 @@
 	}
 
 	// Estas funciones se guardan en el store de Svelte y son disponibles para cualquier pantalla o componente.
-	setContext('desmontarBienvenida', desmontarBienvenida);
-	setContext('desmontarNuevaRutina', desmontarNuevaRutina);
+	setContext('alternarBienvenida', alternarBienvenida);
+	setContext('alternarNuevaRutina', alternarNuevaRutina);
 	setContext('modoEdicion', modoEdicion);
 </script>
 
-<!-- Se activa la visibilidad de las pantallas dependiendo del estado de las variables -->
 <body>
-	{#if bienvenida}
+	{#if mostrarBienvenida}
 		<Bienvenida />
 	{/if}
 
@@ -63,8 +56,8 @@
 			guardarDatos('primeraVez', 0), console.log(leerDatos('primeraVez'));
 		}}>primera vez</button
 	>
-	<button on:click={desmontarBienvenida}>bienvenida</button>
-	<button on:click={desmontarNuevaRutina}>mostrar rutina</button>
+	<button on:click={alternarBienvenida}>bienvenida</button>
+	<button on:click={alternarNuevaRutina}>mostrar rutina</button>
 </div>
 
 <style>
