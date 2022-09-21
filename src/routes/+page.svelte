@@ -3,10 +3,13 @@
 	import Bienvenida from '../lib/bienvenida/bienvenida.svelte';
 	import NuevaRutina from '../lib/crearRutina/nuevaRutina.svelte';
 	import PresentarRutina from '../lib/crearRutina/presentarRutina.svelte';
+	import Rutina from '../lib/rutina/rutina.svelte';
+
 	import { guardarDatos, leerDatos } from '../stores/store';
 
 	let mostrarBienvenida = true;
 	let crearRutina = false;
+	let mostrarPresentacionRutina = false;
 	let mostrarRutina = false;
 	let edicion = false;
 
@@ -19,12 +22,17 @@
 	// Funcion switcher que alterna entre la pantalla de crear rutina y la pantalla de confirmación de rutina.
 	function alternarNuevaRutina() {
 		crearRutina = !crearRutina;
+		mostrarPresentacionRutina = !mostrarPresentacionRutina;
+	}
+
+	function alternarRutina() {
+		mostrarBienvenida = !mostrarBienvenida;
 		mostrarRutina = !mostrarRutina;
 	}
 
 	// Funcion que activa el modo edición de la pantalla `crearRutina`.
 	function modoEdicion() {
-		mostrarRutina = false;
+		mostrarPresentacionRutina = false;
 		edicion = true;
 		crearRutina = true;
 	}
@@ -44,8 +52,12 @@
 		<NuevaRutina {edicion} />
 	{/if}
 
-	{#if mostrarRutina}
+	{#if mostrarPresentacionRutina}
 		<PresentarRutina />
+	{/if}
+
+	{#if mostrarRutina}
+		<Rutina />
 	{/if}
 </body>
 
@@ -57,7 +69,8 @@
 		}}>primera vez</button
 	>
 	<button on:click={alternarBienvenida}>bienvenida</button>
-	<button on:click={alternarNuevaRutina}>mostrar rutina</button>
+	<button on:click={alternarNuevaRutina}>mostrar presentacion rutina</button>
+	<button on:click={alternarRutina}>mostrar rutina</button>
 </div>
 
 <style>
