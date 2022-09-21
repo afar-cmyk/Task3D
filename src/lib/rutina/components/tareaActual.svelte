@@ -41,6 +41,7 @@
 	}
 
 	.seccion-central span {
+		width: 100%;
 		font-family: 'Dosis';
 		font-style: normal;
 		font-weight: 700;
