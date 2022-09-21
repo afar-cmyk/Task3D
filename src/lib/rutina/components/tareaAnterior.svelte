@@ -17,6 +17,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		margin-bottom: 38px;
 	}
 
 	h3 {
