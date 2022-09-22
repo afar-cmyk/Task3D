@@ -5,17 +5,16 @@
 	import Footer from '../footer.svelte';
 
 	let modoEdicion = getContext('modoEdicion');
+	let alternarRutina = getContext('alternarRutina');
 
 	$: nombreRutina = leerDatos('tituloRutina');
-
-	// Documentar el codigo
 </script>
 
 <main>
 	<h1>{nombreRutina}</h1>
 	<div class="seccion-botones">
 		<BotonPrincipal variante="secundario" textoBoton="Editar" on:click={modoEdicion} />
-		<BotonPrincipal textoBoton="Comenzar" />
+		<BotonPrincipal textoBoton="Comenzar" on:click={alternarRutina} />
 	</div>
 </main>
 <Footer />

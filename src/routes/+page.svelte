@@ -26,7 +26,7 @@
 	}
 
 	function alternarRutina() {
-		mostrarBienvenida = !mostrarBienvenida;
+		mostrarPresentacionRutina = false;
 		mostrarRutina = !mostrarRutina;
 	}
 
@@ -40,6 +40,7 @@
 	// Estas funciones se guardan en el store de Svelte y son disponibles para cualquier pantalla o componente.
 	setContext('alternarBienvenida', alternarBienvenida);
 	setContext('alternarNuevaRutina', alternarNuevaRutina);
+	setContext('alternarRutina', alternarRutina);
 	setContext('modoEdicion', modoEdicion);
 </script>
 

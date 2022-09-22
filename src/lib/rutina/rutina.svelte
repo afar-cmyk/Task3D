@@ -1,17 +1,20 @@
 <script>
+	import { getContext } from 'svelte';
+	import { leerDatos } from '../../stores/store';
 	import BotonPrincipal from '../botonPrincipal.svelte';
 	import Footer from '../footer.svelte';
 	import Logo from '../logo.svelte';
 	import ProximaTarea from './components/proximaTarea.svelte';
 	import TareaActual from './components/tareaActual.svelte';
 	import TareaAnterior from './components/tareaAnterior.svelte';
+	$: nombreRutina = leerDatos('tituloRutina');
 </script>
 
 <nav>
 	<Logo logoPrimeraVez={false} desmontarLogo={null} --tamaño-texto="32px" logoNormal="true" />
 </nav>
 <main>
-	<h1>Titulo de la rutina</h1>
+	<h1>{nombreRutina}</h1>
 	<TareaAnterior />
 	<TareaActual />
 	<BotonPrincipal textoBoton="Ver rutina" />
