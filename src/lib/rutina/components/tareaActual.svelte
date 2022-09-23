@@ -1,4 +1,8 @@
 <script>
+	import { leerDatos } from '../../../stores/store';
+
+	let tareaActual = leerDatos('contenidoRutina');
+	console.log();
 </script>
 
 <div class="contenedor-principal">
@@ -7,7 +11,7 @@
 		<h4>1/30</h4>
 	</div>
 	<div class="seccion-central">
-		<span>Titulo muy largo de la tarea actual</span>
+		<span>{tareaActual[0]}</span>
 	</div>
 </div>
 
