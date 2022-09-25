@@ -2,13 +2,13 @@
 	import { leerDatos } from '../../../stores/store';
 
 	let tareaActual = leerDatos('contenidoRutina');
-	console.log();
+	console.log(tareaActual);
 </script>
 
 <div class="contenedor-principal">
 	<div class="seccion-superior">
 		<h4>Nueva tarea:</h4>
-		<h4>1/30</h4>
+		<h4>{tareaActual.indexOf(tareaActual[0]) + 1} / {tareaActual.length}</h4>
 	</div>
 	<div class="seccion-central">
 		<span>{tareaActual[0]}</span>
